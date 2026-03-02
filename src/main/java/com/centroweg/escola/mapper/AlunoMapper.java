@@ -3,7 +3,11 @@ package com.centroweg.escola.mapper;
 import com.centroweg.escola.dto.AlunoRequest;
 import com.centroweg.escola.dto.AlunoResponse;
 import com.centroweg.escola.model.Aluno;
+import com.centroweg.escola.model.Professor;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class AlunoMapper {

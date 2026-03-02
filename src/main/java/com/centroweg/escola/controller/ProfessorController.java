@@ -55,4 +55,13 @@ public class ProfessorController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public void removerProfessor(@PathVariable long id){
+        try{
+            professorService.removerProfessor(id);
+        }catch (SQLException e){
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+
 }

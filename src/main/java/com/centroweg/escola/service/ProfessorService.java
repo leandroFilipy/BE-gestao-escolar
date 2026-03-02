@@ -62,4 +62,9 @@ public class ProfessorService {
         return professorResponse;
     }
 
+    public void removerProfessor(long id) throws SQLException{
+
+        professorRepository.deleteById(id);
+    }
+
 }
