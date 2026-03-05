@@ -17,32 +17,19 @@ public class CursosMapper {
 
         Curso curso = new Curso();
 
-        List<Professor> professores = new ArrayList<>();
-
-        for(Long id : cursoRequest.professores()){
-            Professor professor2 = new Professor();
-            professor2.setId(id);
-            professores.add(professor2);
-        }
 
         curso.setNome(cursoRequest.nome());
-        curso.setCodigo(curso.getCodigo());
-        curso.setProfessores(professores);
+        curso.setCodigo(cursoRequest.codigo());
         return curso;
     }
 
-    public CursoResponse paraDTO (Curso curso){
+    public CursoResponse paraDTO (Curso curso, List<String> nomesDeProfessores){
 
-        List<String> nomesProfessores = new ArrayList<>();
-        for (Professor professor : curso.getProfessores()){
-            nomesProfessores.add(professor.getNome());
-
-        }
         return new CursoResponse(
                 curso.getId(),
                 curso.getNome(),
                 curso.getCodigo(),
-                nomesProfessores
+                nomesDeProfessores != null ? nomesDeProfessores : new ArrayList<>()
         );
     }
 }

@@ -4,6 +4,7 @@ import com.centroweg.escola.dto.AlunoRequest;
 import com.centroweg.escola.dto.AlunoResponse;
 import com.centroweg.escola.model.Aluno;
 import com.centroweg.escola.service.AlunoService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.processing.SQL;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class AlunoController {
     private final AlunoService alunoService;
 
     @PostMapping
-    public AlunoResponse criarAluno(@RequestBody AlunoRequest alunoRequest){
+    public AlunoResponse criarAluno(@Valid @RequestBody AlunoRequest alunoRequest){
         try{
             return alunoService.criarAluno(alunoRequest);
         }catch (SQLException e){

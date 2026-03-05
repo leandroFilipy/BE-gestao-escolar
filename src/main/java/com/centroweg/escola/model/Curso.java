@@ -27,14 +27,10 @@ public class Curso {
     @Column(name = "codigo", nullable = false)
     private String codigo;
 
-    @ManyToMany
-    private List<Professor> professores;
 
-
-    public Curso(String nome, String codigo, List<Professor> professores) {
+    public Curso(String nome, String codigo) {
         this.nome = nome;
         this.codigo = codigo;
-        this.professores = professores;
     }
 
 }
