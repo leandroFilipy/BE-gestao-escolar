@@ -26,8 +26,8 @@ public class CursosMapper {
         }
 
         curso.setNome(cursoRequest.nome());
-        curso.setCodigo(curso.getNome());
-
+        curso.setCodigo(curso.getCodigo());
+        curso.setProfessores(professores);
         return curso;
     }
 

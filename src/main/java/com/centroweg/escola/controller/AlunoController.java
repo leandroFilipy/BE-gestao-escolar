@@ -21,9 +21,9 @@ public class AlunoController {
     private final AlunoService alunoService;
 
     @PostMapping
-    public AlunoResponse criarAluno(@RequestBody Aluno aluno){
+    public AlunoResponse criarAluno(@RequestBody AlunoRequest alunoRequest){
         try{
-            return alunoService.criarAluno(aluno);
+            return alunoService.criarAluno(alunoRequest);
         }catch (SQLException e){
             throw new RuntimeException(e.getMessage());
         }

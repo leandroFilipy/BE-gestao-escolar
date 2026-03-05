@@ -27,9 +27,11 @@ public class AlunoService {
     private final AlunoMapper alunoMapper;
 
 
-    public AlunoResponse criarAluno(Aluno aluno)throws SQLException{
+    public AlunoResponse criarAluno(AlunoRequest alunoRequest)throws SQLException{
+
+        Aluno aluno = alunoMapper.paraEntidade(alunoRequest);
         Aluno aluno1 = alunoRepository.save(aluno);
-        AlunoResponse alunoResponse = alunoMapper.paraDto(aluno);
+        AlunoResponse alunoResponse = alunoMapper.paraDto(aluno1);
         return alunoResponse;
     }
 

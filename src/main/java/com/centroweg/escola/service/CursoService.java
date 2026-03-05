@@ -1,5 +1,6 @@
 package com.centroweg.escola.service;
 
+import com.centroweg.escola.dto.CursoRequest;
 import com.centroweg.escola.dto.CursoResponse;
 import com.centroweg.escola.mapper.CursosMapper;
 import com.centroweg.escola.model.Curso;
@@ -17,9 +18,10 @@ public class CursoService {
     private final CursosMapper cursosMapper;
 
 
-    public CursoResponse criarCurso(Curso curso)throws SQLException{
+    public CursoResponse criarCurso(CursoRequest cursoRequest)throws SQLException{
+        Curso curso = cursosMapper.paraEntidade(cursoRequest);
         Curso curso1 = cursoRepository.save(curso);
-        CursoResponse cursoResponse = cursosMapper.paraDTO(curso);
+        CursoResponse cursoResponse = cursosMapper.paraDTO(curso1);
 
         return cursoResponse;
     }

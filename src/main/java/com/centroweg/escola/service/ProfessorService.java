@@ -21,8 +21,9 @@ public class ProfessorService {
     private final ProfessorRepository professorRepository;
     private final ProfessorMapper professorMapper;
 
-    public ProfessorResponse criarProfessor(Professor professor)throws SQLException{
+    public ProfessorResponse criarProfessor(ProfessorRequest professorRequest)throws SQLException{
 
+        Professor professor = professorMapper.paraEntidade(professorRequest);
         Professor professor1 = professorRepository.save(professor);
         ProfessorResponse professorResponse = professorMapper.paraDto(professor1);
 

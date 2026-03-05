@@ -18,7 +18,7 @@ public class ProfessorController {
     private final ProfessorService professorService;
 
     @PostMapping
-    public ProfessorResponse criarProfessor (@RequestBody Professor professor){
+    public ProfessorResponse criarProfessor (@RequestBody ProfessorRequest professor){
 
         try{
             return professorService.criarProfessor(professor);
