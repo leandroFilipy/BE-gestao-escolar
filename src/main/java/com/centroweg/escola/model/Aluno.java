@@ -39,6 +39,7 @@ public class Aluno {
             this.matricula = matricula;
             this.dataNascimento = dataNascimento;
         }
+
     /*
     public Aluno(long id, String nome, String email, String matricula, Date dataNascimento) {
         this.id = id;
